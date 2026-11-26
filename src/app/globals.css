@@ -1,0 +1,239 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-ink: var(--ink);
+  --color-brand-deep: var(--brand-deep);
+  --color-turmeric: var(--turmeric);
+  --color-oxblood: var(--oxblood);
+  --color-leaf: var(--leaf);
+  --color-bone: var(--bone);
+  --font-display: var(--font-fraunces);
+  /* System Telugu fonts: a web font for one tagline cost ~125 KB on every home visit */
+  --font-telugu: "Noto Sans Telugu", "Nirmala UI", "Telugu MN", "Telugu Sangam MN", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jakarta);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --brand: #e9411c;
+  --ink: #1c1917; /* espresso charcoal text */
+  --oxblood: #1c1917; /* dark bands: hero, story, footer (espresso) */
+  --leaf: #15803d; /* fresh herb green, used sparingly */
+  --brand-deep: #c2410c; /* storefront roasted chili: 5.2:1 with white text */
+  --turmeric: #d97706; /* saffron gold */
+  --bone: #faf8f5; /* warm alabaster */
+  --background: #F9F4F0;
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: #F9F4F0;
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* Scalloped section edges (storefront). Place inside/over a section; transparent gaps show what is behind. */
+.scallop-top {
+  height: 20px;
+  background: radial-gradient(circle at 50% 100%, var(--scallop, var(--oxblood)) 19px, transparent 20px) 0 0 / 40px 20px repeat-x;
+}
+.scallop-bottom {
+  height: 20px;
+  background: radial-gradient(circle at 50% 0, var(--scallop, var(--oxblood)) 19px, transparent 20px) 0 0 / 40px 20px repeat-x;
+}
+
+/* Smooth open/close for <details class="faq"> (Chromium 131+, Safari 26+; older browsers just toggle instantly). */
+:root {
+  interpolate-size: allow-keywords;
+}
+.faq::details-content {
+  height: 0;
+  overflow: clip;
+  transition: height 0.3s ease, content-visibility 0.3s allow-discrete;
+}
+.faq[open]::details-content {
+  height: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq::details-content {
+    transition: none;
+  }
+}
+
+/* Ticker band */
+@keyframes marquee {
+  to { transform: translate3d(-25%, 0, 0); } /* 4 identical copies: shift exactly one copy for a seamless loop */
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* UX baseline */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+button:not(:disabled),
+[role="button"] {
+  cursor: pointer;
+}
+a,
+button {
+  touch-action: manipulation; /* no double-tap zoom when tapping +/- quickly */
+}
+
+/* Storefront motion (see src/components/motion/index.tsx). Hidden only when motion is allowed; <noscript> in layout reveals without JS. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] { opacity: 0; transform: translateY(28px); }
+  [data-reveal="each"] { opacity: 1; transform: none; }
+  [data-reveal="each"] > * { opacity: 0; transform: translateY(28px); }
+  [data-split] { opacity: 0; }
+  /* Above-the-fold entrance: pure CSS so the headline is instant and needs no JavaScript */
+  .hero-in { animation: hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: var(--d, 0ms); }
+  /* Hero art: the disc rises behind amma, then badges pop in once. The mascot photo itself is never animated (LCP). */
+  .hero-disc { transform-origin: 50% 100%; animation: hero-disc 0.9s cubic-bezier(0.16, 1, 0.3, 1) 150ms both; }
+  .hero-pop { animation: hero-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; animation-delay: var(--d, 0ms); }
+  html[data-motion="off"] [data-reveal], html[data-motion="off"] [data-reveal] > *, html[data-motion="off"] [data-split] { opacity: 1 !important; transform: none !important; }
+}
+@keyframes hero-disc { from { opacity: 0; transform: scale(0.82, 0.6); } to { opacity: 1; transform: none; } }
+@keyframes hero-pop { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: none; } }
+@keyframes hero-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+/* SplitReveal word masks: extend the clip box so descenders (y, g, p) aren't cut off */
+.split-clip { display: inline-block; overflow: clip; vertical-align: top; padding: 0.06em 0 0.2em; margin: -0.06em 0 -0.2em; }
+
+/* Paper grain over the storefront (placed on the (customer) wrapper) */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Fraunces: soft terminals, no quirky alternates, and 800 → 700 (the heaviest weight is too loud for headlines) */
+.font-display { font-variation-settings: "SOFT" 100, "WONK" 0; }
+.font-display.font-extrabold { font-weight: 700; }
+
+/* /lab font experiment: Meraki (one regular weight) for headings, Fraunces for the glyphs it lacks (₹ & . , ! ? - —).
+   Weight pinned to 400 so those fallback glyphs match Meraki's stroke. */
+.lab .font-display { font-family: var(--font-meraki), var(--font-fraunces), serif; }
+.lab .font-display.font-extrabold, .lab .font-display.font-bold, .lab .font-display.font-semibold { font-weight: 400; }
+
+/* /shop "Veg only" toggle: hides non-veg sections */
+main[data-veg-only] [data-nonveg] { display: none; }
