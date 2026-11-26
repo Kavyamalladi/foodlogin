@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import { ADMIN_BASE_PATH } from "@/lib/admin-route";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = process.env.NEXT_PUBLIC_BASE_URL!;
+  const base =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://foodlogin.vercel.app");
   return {
     rules: {
       userAgent: "*",

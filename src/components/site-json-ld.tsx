@@ -2,7 +2,9 @@ import { INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/social";
 
 /** Organization + WebSite JSON-LD for rich results eligibility. */
 export function SiteJsonLd() {
-  const base = process.env.NEXT_PUBLIC_BASE_URL!;
+  const base =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://foodlogin.vercel.app");
   const data = {
     "@context": "https://schema.org",
     "@graph": [

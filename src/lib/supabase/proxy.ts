@@ -21,11 +21,14 @@ function clearSupabaseAuthCookies(
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
+  const DEFAULT_URL = "https://unhirvdlusbujymqervh.supabase.co";
+  const DEFAULT_KEY = "sb_publishable_fieXG50cW7H-cBVp0Pui3g_NHFLdS4m";
+
   // With Fluid compute, don't put this client in a global variable.
   // Always create a new one on each request.
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL || DEFAULT_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY || DEFAULT_KEY,
     {
       cookies: {
         getAll() {

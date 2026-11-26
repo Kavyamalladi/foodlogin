@@ -25,8 +25,12 @@ export const viewport: Viewport = {
   themeColor: "#1c1917",
 };
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://foodlogin.vercel.app");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+  metadataBase: new URL(baseUrl),
   title: {
     default: "Foodlogin — Homemade Pickles, Sweets & Podi",
     template: "%s | Foodlogin",

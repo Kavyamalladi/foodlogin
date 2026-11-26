@@ -61,7 +61,9 @@ export default async function ProductDetailPage({ params }: Props) {
 
   const category = categories.find((c) => c.id === product.category_id);
 
-  const base = process.env.NEXT_PUBLIC_BASE_URL!;
+  const base =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://foodlogin.vercel.app");
   const url = `${base}/products/${product.id}`;
   const prices = product.variants.map((v) => v.price);
   const productLd = {

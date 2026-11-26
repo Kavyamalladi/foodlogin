@@ -5,7 +5,9 @@ import type { MetadataRoute } from "next";
 export const revalidate = 86400;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_BASE_URL!;
+  const base =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://foodlogin.vercel.app");
   const supabase = createPublicClient();
 
   const [{ data: categories }, { data: products }] = await Promise.all([
